@@ -222,6 +222,8 @@ dd {
 /*---------------------------------------------*/
 
 header{
+	position: fixed;
+	width: 100%;
 	padding: 0.75em 0;
 	background-color: #222;
 }
@@ -249,23 +251,82 @@ header{
 		display: block;
 		line-height: 0;
 	}
-
-nav{
 	
+main{
+	width: 80%;
+	margin: 0 auto;
 }
-		nav ul{
-			padding: 0;
-		}
 
-		nav li{
-			border-bottom: 0.1em solid #222;
+		nav{
+			overflow: hidden;
+			max-height: 0;
+			-webkit-transition: max-height 0.15s linear;
+			-moz-transition: max-height 0.15s linear;
+			-ms-transition: max-height 0.15s linear;
+			-o-transition: max-height 0.15s linear;
+			transition: max-height 0.15s linear;
 		}
 		
-		nav a{
-			display: block;
-			text-align: center;
-			padding: 1em 0;
+				nav.active{
+					max-height: 216px; /* NOTE: This number is hardcoded! Beware! */
+				}
+		
+				nav ul{
+					padding: 0;
+				}
+
+				nav li{
+					border-bottom: 0.1em solid #222;
+				}
+				
+				nav a{
+					display: block;
+					text-align: center;
+					padding: 1em 0;
+				}
+				
+footer{
+	background-color: #CCC;
+}
+				
+@media only screen and (max-width: 719px){
+		nav{
+				position: fixed;
+				left: 0;
+				width: 100%;
+				background-color: #FFF;
 		}
+}
+@media only screen and (min-width: 720px) {
+header{
+		position: static;
+}
+	
+		nav{
+				float: left;
+				width: 20%;
+				max-height: 200px;
+		}
+		
+			nav ul{
+				margin: 0 5%;
+			}
+		
+		.content{
+				float: left;
+				width: 60%;
+		}
+		
+		aside{
+			float: left;
+			width: 20%;
+		}
+		
+main{
+	width: 80%;
+	margin: 0 auto;
+}		
+}
 
 /*
 .inner {
