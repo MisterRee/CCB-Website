@@ -31,7 +31,7 @@ function resizePage(){
 	// header resizing
 	if( window.innerWidth < 720 ){
 		var px = header.offsetHeight + "px";
-		main.style.paddingTop = px;
+		main.style.marginTop = px;
 		nav.style.top = px;
 	} else {
 		main.style.marginTop = 0;
