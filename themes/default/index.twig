@@ -1,32 +1,29 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
-    <meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width"/>
-    <title>{% if meta.title %}{{ meta.title }} | {% endif %}{{ site_title }}</title>
-    {% if meta.description %}
-        <meta name="description" content="{{ meta.description|striptags }}">
-    {% endif %}{% if meta.robots %}
-        <meta name="robots" content="{{ meta.robots }}">
-    {% endif %}
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" type="text/css" />
-    <link rel="stylesheet" href="{{ theme_url }}/style.css" type="text/css" />
-    <link rel="stylesheet" href="{{ theme_url }}/fontello.css" type="text/css" />
-    <script src="{{ theme_url }}/scripts/modernizr-2.6.1.min.js"></script>
-		<script src="{{ theme_url }}/scripts/renderer.js"></script>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width"/>
+	<title>{% if meta.title %}{{ meta.title }} | {% endif %}{{ site_title }}</title>
+	{% if meta.description %}
+			<meta name="description" content="{{ meta.description|striptags }}">
+	{% endif %}{% if meta.robots %}
+			<meta name="robots" content="{{ meta.robots }}">
+	{% endif %}
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" type="text/css" />
+	<link rel="stylesheet" href="{{ theme_url }}/style.css" type="text/css" />
+	<link rel="stylesheet" href="{{ theme_url }}/fontello.css" type="text/css" />
+	<script src="{{ theme_url }}/scripts/modernizr-2.6.1.min.js"></script>
+	<script src="{{ theme_url }}/scripts/renderer.js"></script>
 </head>
 <body>
     <header id="header clearfix">
         <div class="left inner">
-            <a href="{{ "index"|link }}" id="logo">
-								<img src="{{ theme_url }}/logo-small.png" alt="Christ Central Buffalo's Logo"/>
-						</a>
+					<a href="{{ "index"|link }}" id="logo">
+						<img src="{{ theme_url }}/logo-small.png" alt="Christ Central Buffalo's Logo"/>
+					</a>
         </div>
 				<div class="right inner">
-						<img class="social-icon-button" src="{{ theme_url }}/facebook-icon.png" alt="Facebook Logo"/>
-						<img class="social-icon-button" src="{{ theme_url }}/twitter-icon.png" alt="Twitter Logo"/>
-						<img class="social-icon-button" src="{{ theme_url }}/instagram-icon.png" alt="Instagram Logo"/>
-						<img class="header-menu-button" src="{{ theme_url }}/menu-icon.png" alt="An interfaceable mobile hamburger button"/>
+					<img class="header-menu-button" src="{{ theme_url }}/menu-icon.png" alt="An interfaceable mobile hamburger button"/>
 				</div>
     </header>
     <main id="clearfix">
@@ -50,14 +47,17 @@
 				</aside>
     </main>
     <footer id="footer">
-        <div class="inner">
-            <div class="social">
-								<img class="social-icon-button" src="{{ theme_url }}/facebook-icon.png" alt="Facebook Logo"/>
-								<img class="social-icon-button" src="{{ theme_url }}/twitter-icon.png" alt="Twitter Logo"/>
-								<img class="social-icon-button" src="{{ theme_url }}/instagram-icon.png" alt="Instagram Logo"/> 
-            </div>
-            <span> 	&#169; Christ Central Buffalo 2016</span>
-        </div>
+			<div class="inner">
+				<div class="social">
+					<a href="https://www.facebook.com/ChristCentralBuffalo/">
+						<object type="image/svg+xml" data="{{ theme_url }}/icon-facebook.svg"></object>
+					</a>
+					<a href="https://christcentralbuffalo.wordpress.com/">
+						<object type="image/svg+xml" data="{{ theme_url }}/icon-wordpress.svg"></object>
+					</a>
+				</div>
+				<span> 	&#169; Christ Central Buffalo 2016</span>
+			</div>
     </footer>
 </body>
 </html>
