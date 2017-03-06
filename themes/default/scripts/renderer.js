@@ -26,7 +26,7 @@
 		var nav = document.querySelector('nav');
 		var footer = document.querySelector('footer');
 		
-		widthEqualizer(headerLinks, {});
+		//widthEqualizer(headerLinks, {});
 		
 		// main body resizing
 		if( body.clientHeight > header.clientHeight + main.clientHeight + footer.clientHeight){

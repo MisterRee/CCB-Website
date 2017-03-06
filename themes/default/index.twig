@@ -12,24 +12,16 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" type="text/css" />
 	<link rel="stylesheet" href="{{ theme_url }}/style.css" type="text/css" />
 	<link rel="stylesheet" href="{{ theme_url }}/fontello.css" type="text/css" />
-	<script src="{{ theme_url }}/scripts/jquery-3.1.1.slim.min.js"></script>
+	<link rel="stylesheet" href="{{ theme_url }}/unslider.css" type="text/css" />
+	<script
+  src="https://code.jquery.com/jquery-2.1.4.min.js"
+  integrity="sha256-8WqyJLuWKRBVhxXIL1jBDD7SDxU936oZkCnxQbWwJVw="
+  crossorigin="anonymous"></script>
 	<script src="{{ theme_url }}/scripts/modernizr-2.6.1.min.js"></script>
 	<script src="{{ theme_url }}/scripts/renderer.js"></script>
+	<script src="{{ theme_url }}/scripts/unslider.js"></script>
 </head>
 <body>
-	<div class="pre-header" id="clearfix">
-		<div class="left-float">
-			<small class="white-text">CCB is launching February 19/2017</small>
-		</div>
-		<div class="social right-float">
-			<a href="https://www.facebook.com/ChristCentralBuffalo/">
-				<object type="image/svg+xml" data="{{ theme_url }}/icon-facebook.svg"></object>
-			</a>
-			<a href="https://christcentralbuffalo.wordpress.com/">
-				<object type="image/svg+xml" data="{{ theme_url }}/icon-wordpress.svg"></object>
-			</a>
-		</div>
-	</div>
 	<header id="header clearfix">
 		<div class="left inner">
 			<a class="white-text" href="{{ "index"|link }}" id="logo">
@@ -42,36 +34,70 @@
 		</div>
 		<nav>
 			<ul class="overflow">
+				<li><a class="white-text" href="https://www.paypal.me/christcentralbuffalo" target="_blank"><h3>Giving</h3></a></li>
 				{% for page in pages|reverse if page.title %}
-					<li{% if page.id == current_page.id %} class="active"{% endif %}
-					   {% if '%2F' in page.url %} id="subdir" {% endif %}>
-						<a class="white-text" href="{{ page.url }}"><h3>{{ page.title }}</h3></a>
-					</li>
+					{% if page.meta.robots == "indexed" %}
+						{% if page.meta.dropdown %}
+						<li class="hover-target">
+							<a class="white-text white-underlined" href="{{ page.url }}"><h3>{{ page.title }}</h3></a>
+							<ul class="dropdown">
+							{% for subPage in pages %}
+								{% if subPage.meta.robots == page.meta.dropdown %}
+								<li>
+									<a class="white-text" href="{{ subPage.url }}"><h3>{{ subPage.title }}</h3></a>
+								</li>
+								{% endif %}
+							{% endfor %}
+							</ul>
+						{% else %}
+						<li{% if page.id == current_page.id %} class="active" {% endif %}>
+							<a class="white-text" href="{{ page.url }}"><h3>{{ page.title }}</h3></a>
+						{% endif %}
+						</li>
+					{% endif %}
 				{% endfor %}
 			</ul>
 		</nav>
 	</header>
     <main id="clearfix">
 			<div class="inner content padded">
-					{{ content }}
+				{{ content }}
 			</div>
-			<aside id="clearfix">
-			</aside>
     </main>
     <footer id="footer">
-			<div class="foot-nav desktop-only">
-				<ul class="overflow">
+			<div class="foot-nav desktop-only overflow">
+				<ul class="left-float">
 					{% for page in pages|reverse if page.title %}
-						<li{% if page.id == current_page.id %} class="active"{% endif %}
-							 {% if '%2F' in page.url %} id="subdir" {% endif %}>
+						{% if not (page.id starts with "events/") %}
+						<li {% if page.id == current_page.id %} class="active" {% endif %}>
 							<a href="{{ page.url }}"><h6>{{ page.title }}</h6></a>
 						</li>
+						{% endif %}
 					{% endfor %}
 				</ul>
+				<div class="social-wrap" id="clearfix">
+					<div class="social">
+						<a href="https://www.facebook.com/ChristCentralBuffalo/" target="_blank">
+							<img src="{{ theme_url }}/icon-facebook.png" alt="facebook logo"/>
+						</a>
+						<a href="https://christcentralbuffalo.wordpress.com/" target="_blank">
+							<img src="{{ theme_url }}/icon-wordpress.png" alt="wordpress logo"/>
+						</a>
+					</div>
+				</div>
 			</div>
-			<div class="inner">
-				<span> 	&#169; Christ Central Buffalo 2016</span>
+			<div class="foot-nav">
+				<span>&#169; Christ Central Buffalo 2016</span>
 			</div>
     </footer>
+		<script>
+			$(function(){
+				if( $('.carousel-slider').length ){
+					$('.carousel-slider').unslider({
+						autoplay: true
+					});
+				};
+			});
+		</script>
 </body>
 </html>
