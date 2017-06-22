@@ -650,3 +650,8 @@ footer{
 		padding: 0 2em 1em 2em;
 		color: inherit;
 	}
+
+  input.inline{
+    display: inline-block;
+    margin-right: 1em;
+  }

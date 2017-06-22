@@ -42,7 +42,7 @@
 							<a class="white-text white-underlined" href="{{ page.url }}"><h3>{{ page.title }}</h3></a>
 							<ul class="dropdown">
 							{% for subPage in pages %}
-								{% if subPage.meta.robots == page.meta.dropdown %}
+								{% if "about-dropdown" in subPage.meta.robots %}
 								<li>
 									<a class="white-text" href="{{ subPage.url }}"><h3>{{ subPage.title }}</h3></a>
 								</li>
@@ -68,7 +68,7 @@
 			<div class="foot-nav desktop-only overflow">
 				<ul class="left-float">
 					{% for page in pages|reverse if page.title %}
-						{% if not (page.id starts with "events/") %}
+						{% if "indexed" in page.meta.robots  %}
 						<li {% if page.id == current_page.id %} class="active" {% endif %}>
 							<a href="{{ page.url }}"><h6>{{ page.title }}</h6></a>
 						</li>
